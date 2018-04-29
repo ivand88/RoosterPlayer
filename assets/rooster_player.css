@@ -1,0 +1,31 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 13, 2017, 11:26:49 PM
+    Author     : Ivan
+*/
+
+#borderPane { -fx-background-color: #000; }
+#actionPane { -fx-opacity: 0.2; }
+#actionPane:hover { -fx-opacity: 1; }
+
+.playerButtonIcon { -fx-text-fill: #fff; }
+.playerButtonIcon:hover { -fx-text-fill: #e0e0e0; }
+
+#mainMenu {
+    -fx-background-color: #000;
+    -fx-opacity: 0.8;
+    -fx-animated: true;
+}
+
+#mainMenu:hover,
+#mainMenu:showing {
+    -fx-opacity: 1;
+}
+
+.menu > .label  {
+    -fx-text-fill: #fff;
+}

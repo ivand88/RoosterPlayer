@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.controlsfx.glyphfont.*?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="roosterplayer.FXMLDocumentController">
+   <bottom>
+      <AnchorPane fx:id="actionPane" prefHeight="70.0" prefWidth="600.0" style="-fx-background-color: #000;" BorderPane.alignment="CENTER">
+         <children>
+            <BorderPane layoutX="53.0" layoutY="-86.0" prefHeight="114.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <bottom>
+                  <Slider fx:id="progressBar" prefHeight="14.0" prefWidth="600.0" snapToPixel="false" snapToTicks="true" BorderPane.alignment="CENTER">
+                     <padding>
+                        <Insets bottom="10.0" left="15.0" right="15.0" />
+                     </padding>
+                  </Slider>
+               </bottom>
+               <center>
+                  <AnchorPane fx:id="playerActionPane" BorderPane.alignment="CENTER">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="600.0" style="-fx-alignment: center;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Slider fx:id="volumeControll" blockIncrement="2.0" majorTickUnit="20.0" minorTickCount="2" prefHeight="14.0" prefWidth="80.0" showTickMarks="true" value="100.0">
+                                 <HBox.margin>
+                                    <Insets right="10.0" top="10.0" />
+                                 </HBox.margin>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Slider>
+                              <Button fx:id="previousItemButton" mnemonicParsing="false" onAction="#handlePreviousAction" style="-fx-background-color: transparent;" styleClass="playerButton" textFill="WHITE">
+                                    <graphic>
+                                        <Glyph fontFamily="FontAwesome" icon="FAST_BACKWARD" styleClass="playerButtonIcon" />
+                                    </graphic>
+                              </Button>
+                              <Button fx:id="playButton" defaultButton="true" mnemonicParsing="false" onAction="#handlePlayAction" style="-fx-background-color: transparent;" styleClass="playerButton" textFill="WHITE">
+                                    <graphic>
+                                        <Glyph fontFamily="FontAwesome" icon="PLAY" styleClass="playerButtonIcon" />
+                                    </graphic>
+                              </Button>
+                              <Button fx:id="stopButton" mnemonicParsing="false" onAction="#handleStopAction" style="-fx-background-color: transparent;" styleClass="playerButton" textFill="WHITE">
+                                    <graphic>
+                                        <Glyph fontFamily="FontAwesome" icon="STOP" styleClass="playerButtonIcon" />
+                                    </graphic>
+                              </Button>
+                              <Button fx:id="pauseButton" mnemonicParsing="false" onAction="#handlePauseAction" style="-fx-background-color: transparent;" styleClass="playerButton" textFill="WHITE">
+                                    <graphic>
+                                        <Glyph fontFamily="FontAwesome" icon="PAUSE" styleClass="playerButtonIcon" />
+                                    </graphic>
+                              </Button>
+                              <Button fx:id="nextItemButton" mnemonicParsing="false" onAction="#handleNextAction" style="-fx-background-color: transparent;" styleClass="playerButton" textFill="WHITE">
+                                    <graphic>
+                                        <Glyph fontFamily="FontAwesome" icon="FAST_FORWARD" styleClass="playerButtonIcon" />
+                                    </graphic>
+                              </Button>
+                              <Slider fx:id="panStereoControll" blockIncrement="0.1" majorTickUnit="1.0" max="1.0" min="-1.0" minorTickCount="4" prefHeight="14.0" prefWidth="80.0" showTickMarks="true" snapToTicks="true">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </Slider>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </bottom>
+   <center>
+        <AnchorPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+           <children>
+               <StackPane fx:id="playerMainArrea" style="-fx-background-color: #000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER" />
+           </children>
+        </AnchorPane>
+   </center>
+   <right>
+      <AnchorPane fx:id="sideActionPane" prefHeight="305.0" prefWidth="160.0" style="-fx-background-color: #fafafa;" BorderPane.alignment="CENTER">
+         <children>
+            <VBox fx:id="sideActionPaneInner" layoutX="-20.0" layoutY="97.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </right>
+   <top>
+      <MenuBar fx:id="mainMenu" BorderPane.alignment="CENTER">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleOpenMedia" text="Open" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleOpenDirectory" text="Open Directory" />
+                  <SeparatorMenuItem />
+                  <MenuItem mnemonicParsing="false" onAction="#handleOpenPlaylist" text="Open Playlist" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleSavePlaylist" text="Save Playlist" />
+                  <SeparatorMenuItem />
+                  <MenuItem mnemonicParsing="false" onAction="#handleExitApp" text="Exit" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Preferences">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleUpdates" text="Settings" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleSettings" text="Settings" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleFullScreenMode" text="Fullscreen Mode" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="View">
+                <items>
+                    <MenuItem mnemonicParsing="false" onAction="#hideSideActionPane" text="Hide Sidebar" />
+                    <MenuItem mnemonicParsing="false" onAction="#showSideActionPane" text="Show Sidebar" />  
+                </items>
+            </Menu> 
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleHelpScreen" text="Help" />
+                  <SeparatorMenuItem />
+                  <MenuItem mnemonicParsing="false" onAction="#handleAboutScreen" text="About" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+   </top>
+</BorderPane>
